@@ -636,7 +636,9 @@ snapshots:
   'cse340@file:':
     dependencies:
       dotenv: 16.4.7
+      ejs: 3.1.10
       express: 4.21.2
+      express-ejs-layouts: 2.5.1
       pg: 8.13.3
     transitivePeerDependencies:
       - pg-native
