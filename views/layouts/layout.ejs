@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
   <%- include('../partials/head') %>
 
@@ -14,4 +14,64 @@
       <%- include('../partials/footer') %>
     </div>
   </body>
+</html> -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head') %>
+
+  <body>
+    <div id="wrapper">
+      <%- include('../partials/header') %>
+      <%- include('../partials/navigation') %>
+
+      <main>
+        <%- body %>
+      </main>
+
+      <%- include('../partials/footer') %>
+    </div>
+  </body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head') %> <!-- Includes head.ejs -->
+
+  <body>
+    <div id="wrapper">
+      <!-- Header Section -->
+      <%- include('../partials/header') %> <!-- Includes header.ejs -->
+
+      <!-- Navigation Section -->
+      <%- include('../partials/navigation') %> <!-- Includes navigation.ejs -->
+
+      <!-- Main Content -->
+      <main id="main-content">
+        <%- body %> <!-- Inserts page-specific content -->
+      </main>
+
+      <!-- Footer Section -->
+      <%- include('../partials/footer') %> <!-- Includes footer.ejs -->
+    </div>
+  </body>
 </html>
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/head') %>
+  <body>
+    <header>
+      <h1 class="site-title">CSE Motors</h1>
+      <%- include('partials/navigation') %>
+    </header>
+
+    <%- body %>
+
+    <%- include('partials/footer') %>
+  </body>
+</html> -->
