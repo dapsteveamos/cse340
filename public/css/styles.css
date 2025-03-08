@@ -5,3 +5,95 @@
   box-sizing: border-box;
 }
 
+/******* Change Box Model ***************/
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+#wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #333;
+  color: #fff;
+  padding: 10px 15px;
+}
+
+header a {
+  color: #fff;
+  text-decoration: none;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 15px;
+}
+
+nav li {
+  padding: 5px 10px;
+}
+
+#intro {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.hero-img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+#services {
+  margin: 20px 0;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.service-item {
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  background: #333;
+  color: #fff;
+}
+
+/******* Responsive Design ***************/
+@media screen and (min-width: 768px) {
+  nav ul {
+    justify-content: flex-end;
+  }
+
+  .hero-img {
+    max-height: 400px;
+  }
+
+  #intro p {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+}
