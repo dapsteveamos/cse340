@@ -1,99 +1,107 @@
-/******* Change Box Model ***************/
+/* Base Reset */
 *,
 *:before,
 *:after {
   box-sizing: border-box;
-}
-
-/******* Change Box Model ***************/
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  line-height: 1.6;
 }
 
-#wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 15px;
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f9f9f9;
 }
 
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #333;
-  color: #fff;
-  padding: 10px 15px;
+  padding: 10px 20px;
+  background-color: #0044cc;
+  color: white;
 }
 
 header a {
-  color: #fff;
+  color: white;
   text-decoration: none;
+  font-weight: bold;
 }
 
 nav ul {
   list-style: none;
   padding: 0;
   display: flex;
-  gap: 15px;
+  flex-direction: column; /* Default for mobile */
+  gap: 10px;
 }
 
-nav li {
-  padding: 5px 10px;
+nav ul li {
+  padding: 10px;
 }
 
+main {
+  padding: 20px;
+}
+
+/* Intro Section */
 #intro {
   text-align: center;
-  margin: 20px 0;
 }
 
 .hero-img {
   width: 100%;
-  height: auto;
-  border-radius: 10px;
+  max-width: 400px;
+  margin: 20px auto;
 }
 
+/* Services Section */
 #services {
-  margin: 20px 0;
+  margin: 20px auto;
+  text-align: center;
 }
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: 1fr;
   gap: 20px;
 }
 
-.service-item {
-  text-align: center;
+.service-item img {
+  max-width: 100px;
+  margin: 0 auto;
 }
 
+/* Footer */
 footer {
   text-align: center;
-  padding: 10px;
-  background: #333;
-  color: #fff;
+  padding: 10px 20px;
+  background-color: #0044cc;
+  color: white;
 }
 
-/******* Responsive Design ***************/
+/* Media Queries for Large Screens */
 @media screen and (min-width: 768px) {
+  header {
+    flex-direction: row;
+  }
+
   nav ul {
-    justify-content: flex-end;
+    flex-direction: row;
+    gap: 20px;
   }
 
-  .hero-img {
-    max-height: 400px;
+  #intro {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    text-align: left;
   }
 
-  #intro p {
-    max-width: 800px;
-    margin: 0 auto;
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
