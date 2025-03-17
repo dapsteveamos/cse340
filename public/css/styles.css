@@ -73,17 +73,16 @@ nav a:hover {
 
 #dmc_float {
   position: absolute;
-  /* background-color: rgba(255, 255, 255, 0.8); */
   background-color: rgba(255, 255, 255, 0.8);
   color: aqua;
   padding: 20px;
   max-width: 300px;
   margin: 1px auto 20px auto;
-  text-align: center;
-  bottom: 8%;          /* Move down by 50px */
-  left:  20px;       /* Move left by 100px */
+  text-align: center;       
   max-width: 35%;
   text-align: center;
+  top: 190px;
+  left: 70px;
 }
 
 #dmc_float button {
@@ -180,7 +179,6 @@ nav a:hover {
 /* Footer */
 footer {
   color: white;
-  background-color: blue;
   text-align: center;
   padding: 10px;
 }
