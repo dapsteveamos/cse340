@@ -1,79 +1,146 @@
-/******* Change Box Model ***************/
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-}
-
-/******* Change Box Model ***************/
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-}
-/* General Styles */
+/* General Styling */
 body {
   font-family: Arial, sans-serif;
-  line-height: 1.6;
   margin: 0;
   padding: 0;
-  color: #333;
-  background-color: #f4f4f4;
+  box-sizing: border-box;
 }
 
-h1, h2, h3 {
-  color: #222;
+/* Header */
+#top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  color: black;
+  padding: 10px 20px;
 }
 
-a {
-  color: #007BFF;
+#top-header .siteName a {
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: black;
+}
+
+#top-header #tools a {
+  text-decoration: none;
+  font-size: 1rem;
+  color: black;
+}
+
+/* Navigation */
+nav {
+  background-color: black;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav li {
+  padding: 10px 20px;
+}
+
+nav a {
+  color: white;
   text-decoration: none;
 }
 
-a:hover {
+nav a:hover {
   text-decoration: underline;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-/* Section: Intro */
+/* Intro Section */
 #intro {
+  background-color: white;
+  color: black;
+  padding: 20px;
   text-align: center;
-  padding: 2rem 1rem;
-  background: #222;
-  color: #fff;
 }
 
-#intro .hero-img {
-  margin-top: 1rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+/* Ensure the image does not break the layout */
+.hero-img {
+  display: block;
+  justify-self: center;
+  max-width: 800px;
+  width: 100%;
+  margin: 20px auto; /* Centers the image */
 }
 
-/* Section: Services */
+#dmc_float {
+  position: absolute;
+  /* background-color: rgba(255, 255, 255, 0.8); */
+  background-color: rgba(255, 255, 255, 0.8);
+  color: aqua;
+  padding: 20px;
+  max-width: 300px;
+  margin: 1px auto 20px auto;
+  text-align: center;
+  bottom: 8%;          /* Move down by 50px */
+  left:  20px;       /* Move left by 100px */
+  max-width: 35%;
+  text-align: center;
+}
+
+#dmc_float button {
+  background-color: aqua;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+
+#dmc_float button:hover {
+  background-color: darkblue;
+}
+
+/* Reviews Section */
+#reviews {
+  background-color: white;
+  padding: 20px;
+}
+
+#reviews .review-item {
+  position: relative;
+  padding-left: 20px;
+  margin: 10px 0;
+}
+
+#reviews .review-item::before {
+  content: "\2022";
+  position: absolute;
+  left: 0;
+  color: black;
+  font-size: 1.2em;
+}
+
+#reviews h2 {
+  text-align: center;
+}
+
+/* Services Section */
 #services {
-  padding: 2rem 1rem;
-  background: #fff;
-}
-
-#services h2 {
+  color: rgb(131, 35, 35);
+  padding: 10px;
   text-align: center;
-  margin-bottom: 1.5rem;
 }
 
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1rem;
+  gap: 10px;
+  padding: 10px;
 }
 
 .service-item {
   text-align: center;
   padding: 1rem;
-  background: #f9f9f9;
+  background: aqua;
   border: 1px solid #ddd;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -81,7 +148,7 @@ img {
 
 .service-item img {
   margin-bottom: 0.5rem;
-  border-radius: 50%;
+  border-radius: 10%;
 }
 
 .service-item h3 {
@@ -89,69 +156,31 @@ img {
   font-size: 1.1rem;
 }
 
-/* Section: DMC Float */
-#dmc_float {
-  text-align: center;
-  padding: 2rem 1rem;
-  background: #e0e7ff;
-  color: #222;
-}
-
-#dmc_float p {
-  margin-bottom: 1rem;
-}
-
-#dmcbutton {
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  color: #fff;
-  background-color: #007BFF;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-#dmcbutton:hover {
-  background-color: #0056b3;
-}
-
-/* Section: Reviews */
-#reviews {
-  padding: 2rem 1rem;
-  background: #fff;
-}
-
-#reviews h2 {
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
-
-.reviews-list {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.review-item {
-  padding: 1rem;
-  margin-bottom: 1rem;
-  background: #f9f9f9;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  font-style: italic;
+.service-item a {
+  color: rgb(80, 80, 87);
+  text-decoration: underline;
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
-  #intro {
-    padding: 1rem;
+@media (min-width: 768px) {
+  /* Reviews and Services Side-by-Side on Large View */
+  main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
 
-  .services-grid {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  #reviews, #services {
+    flex: 1;
+    min-width: 45%;
   }
+  
+}
 
-  #reviews .reviews-list {
-    padding: 0 1rem;
-  }
+/* Footer */
+footer {
+  color: white;
+  background-color: blue;
+  text-align: center;
+  padding: 10px;
 }
