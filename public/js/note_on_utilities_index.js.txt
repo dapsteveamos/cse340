@@ -1,0 +1,37 @@
+The buildClassificationGrid Function
+In the previous activity, you created a utility file for storing functions that are not directly part of the M-V-C process. That is where you will build this function. Its purpose is to take an array of inventory items, break each item and its data out of the array and embed it into HTML. When done, there will be a string that will be embedded into the view. It will need CSS styling to be applied to make it look appropriate. But, let's build the function:
+
+Find and open the utilities > index.js file.
+Move below the existing function, create several blank lines and create the function.
+/* **************************************
+* Build the classification view HTML
+* ************************************ */
+Util.buildClassificationGrid = async function(data){
+  let grid
+  if(data.length > 0){
+    grid = '<ul id="inv-display">'
+    data.forEach(vehicle => { 
+      grid += '<li>'
+      grid +=  '<a href="../../inv/detail/'+ vehicle.inv_id 
+      + '" title="View ' + vehicle.inv_make + ' '+ vehicle.inv_model 
+      + 'details"><img src="' + vehicle.inv_thumbnail 
+      +'" alt="Image of '+ vehicle.inv_make + ' ' + vehicle.inv_model 
+      +' on CSE Motors" /></a>'
+      grid += '<div class="namePrice">'
+      grid += '<hr />'
+      grid += '<h2>'
+      grid += '<a href="../../inv/detail/' + vehicle.inv_id +'" title="View ' 
+      + vehicle.inv_make + ' ' + vehicle.inv_model + ' details">' 
+      + vehicle.inv_make + ' ' + vehicle.inv_model + '</a>'
+      grid += '</h2>'
+      grid += '<span>$' 
+      + new Intl.NumberFormat('en-US').format(vehicle.inv_price) + '</span>'
+      grid += '</div>'
+      grid += '</li>'
+    })
+    grid += '</ul>'
+  } else { 
+    grid += '<p class="notice">Sorry, no matching vehicles could be found.</p>'
+  }
+  return grid
+}
