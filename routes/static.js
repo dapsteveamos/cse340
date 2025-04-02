@@ -1,15 +1,24 @@
-
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const inventoryRoute = require("./inventoryRoute"); // Ensure this path is correct
 
 // Static Routes
+// Set up "public" folder / subfolders for static files
 router.use(express.static("public"));
-router.use("/css", express.static(__dirname + "/public/css"));
-router.use("/js", express.static(__dirname + "/public/js"));
-router.use("/images", express.static(__dirname + "/public/images"));
-
-// Inventory Routes
-router.use("/inv", inventoryRoute); // Use router, not app
+router.use("/css", express.static(__dirname + "public/css"));
+router.use("/js", express.static(__dirname + "public/js"));
+router.use("/images", express.static(__dirname + "public/images"));
 
 module.exports = router;
+
+// Inventory routes
+router.use("/inv", inventoryRoute)
+
+
+
+
+
+
+
+
+
+
