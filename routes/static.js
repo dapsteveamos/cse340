@@ -10,5 +10,8 @@ router.use("/images", express.static(__dirname + "public/images"));
 
 module.exports = router;
 
+// Inventory routes
+app.use("/inv", inventoryRoute)
+
 
 
