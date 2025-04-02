@@ -5,6 +5,9 @@
 /* ***********************
  * Require Statements
  *************************/
+// ADDED IN WEEK 2
+const baseController = require("./controllers/baseController")
+
 const express = require("express")
 const expressLayouts = require("express-ejs-layouts")
 const env = require("dotenv").config()
@@ -25,9 +28,15 @@ app.use(static)
 
 
 // Index Route added by Steve Amos
-app.get("/", function(req, res) {
-  res.render("index", {title: "Home"})
-});
+// app.get("/", function(req, res) {
+//   res.render("index", {title: "Home"})
+// });
+
+// Index Route NOW ALTERED BY STEVE AMOS
+app.get("/", baseController.buildHome)
+
+// Beneath the "Index route" add the following code:
+app.use("/inv", inventoryRoute)
 
 
 /* ***********************
