@@ -36,7 +36,8 @@ module.exports = Util
 * ************************************ */
 Util.buildClassificationGrid = async function(data){
     let grid
-    if(data.length > 0){
+    // if(data.length > 0){   //I COMMENTED THE CODE AND MADE EDITION BECAUSE IT MIGHT BE A PROBKE --->>
+    if (Array.isArray(data) && data.length > 0) {  
       grid = '<ul id="inv-display">'
       data.forEach(vehicle => { 
         grid += '<li>'
