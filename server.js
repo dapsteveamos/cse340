@@ -36,7 +36,12 @@ app.get("/", baseController.buildHome)
 
 // Beneath the "Index route" add the following code:
 // Inventory routes
-app.use("/inv", inventoryRoute)
+// app.use("/inv", inventoryRoute)
+
+// SAME CODE BETTER SOLVE BY ADDING CONS
+const inventoryRoute = require("./routes/inventoryroute");
+app.use("/inv", inventoryRoute);
+
 
 
 
