@@ -39,7 +39,7 @@ app.get("/", baseController.buildHome)
 // app.use("/inv", inventoryRoute)
 
 // SAME CODE BETTER SOLVE BY ADDING CONS
-const inventoryRoute = require("./routes/inventoryroute");
+const inventoryRoute = require("./routes/inventoryRoute");
 app.use("/inv", inventoryRoute);
 
 
