@@ -7,7 +7,6 @@
  *************************/
 // ADDED IN WEEK 2
 const baseController = require("./controllers/baseController")
-
 const express = require("express")
 const expressLayouts = require("express-ejs-layouts")
 const env = require("dotenv").config()
@@ -36,7 +35,9 @@ app.use(static)
 app.get("/", baseController.buildHome)
 
 // Beneath the "Index route" add the following code:
+// Inventory routes
 app.use("/inv", inventoryRoute)
+
 
 
 /* ***********************
