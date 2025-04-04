@@ -2,59 +2,63 @@
  * This server.js file is the primary file of the 
  * application. It is used to control the project.
  *******************************************/
+
 /* ***********************
  * Require Statements
  *************************/
-// ADDED IN WEEK 2
-const baseController = require("./controllers/baseController")
-const express = require("express")
-const expressLayouts = require("express-ejs-layouts")
-const env = require("dotenv").config()
-const app = express()
-const static = require("./routes/static")
+const express = require("express");
+const expressLayouts = require("express-ejs-layouts");
+const env = require("dotenv").config();
+const baseController = require("./controllers/baseController");
+const static = require("./routes/static");
+const inventoryRoute = require("./routes/inventoryRoute");
+const utilities = require("./utilities/index"); // ✅ Added this to fix utilities.getNav()
+
+const app = express();
 
 /**
  * View Engine and Templates
  */
-app.set("view engine", "ejs")
-app.use(expressLayouts)
-app.set("layout", "./layouts/layout") // not at views root
+app.set("view engine", "ejs");
+app.use(expressLayouts);
+app.set("layout", "./layouts/layout"); // not at views root
 
 /* ***********************
  * Routes
  *************************/
-app.use(static)
-
-
-// Index Route added by Steve Amos
-// app.get("/", function(req, res) {
-//   res.render("index", {title: "Home"})
-// });
-
-// Index Route NOW ALTERED BY STEVE AMOS
-app.get("/", baseController.buildHome)
-
-// Beneath the "Index route" add the following code:
-// Inventory routes
-// app.use("/inv", inventoryRoute)
-
-// SAME CODE BETTER SOLVE BY ADDING CONS
-const inventoryRoute = require("./routes/inventoryRoute");
+app.use(static);
+app.get("/", baseController.buildHome);
 app.use("/inv", inventoryRoute);
 
-
-
+// File Not Found Route - must be last route in list
+app.use(async (req, res, next) => {
+  next({ status: 404, message: "Sorry, we appear to have lost that page." });
+});
 
 /* ***********************
  * Local Server Information
  * Values from .env (environment) file
  *************************/
-const port = process.env.PORT
-const host = process.env.HOST
+const port = process.env.PORT || 5500; // ✅ Added fallback
+const host = process.env.HOST || "localhost"; // ✅ Added fallback
 
 /* ***********************
  * Log statement to confirm server operation
  *************************/
 app.listen(port, () => {
-  console.log(`app listening on ${host}:${port}`)
-})
+  console.log(`app listening on ${host}:${port}`);
+});
+
+/* ***********************
+ * Express Error Handler
+ * Place after all other middleware
+ *************************/
+app.use(async (err, req, res, next) => {
+  let nav = await utilities.getNav(); // ✅ Fixed missing import
+  console.error(`Error at: "${req.originalUrl}": ${err.message}`);
+  res.render("errors/error", {
+    title: err.status || "Server Error",
+    message: err.message,
+    nav,
+  });
+});
