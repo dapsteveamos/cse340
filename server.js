@@ -26,9 +26,21 @@ app.set("layout", "./layouts/layout"); // not at views root
 /* ***********************
  * Routes
  *************************/
-app.use(static);
-app.get("/", baseController.buildHome);
-app.use("/inv", inventoryRoute);
+// app.use(static);
+// app.get("/", baseController.buildHome);
+// app.use("/inv", inventoryRoute);
+
+/* ***********************
+ * Routes EDITED VERSION 
+ *************************/
+app.use(require("./routes/static"))
+// index route - Unit 3, activity
+app.get("/", utilities.handleErrors(baseController.buildHome))
+// inventory routes -Unit 3 activity
+app.use("/inv", require("./routes/inventoryRoute"))
+// Account route - Unit 4, Activity
+// app.use("/account", require("./routes/accountRoute"))
+
 
 // Index route
 app.get("/", utilities.handleErrors(baseController.buildHome));
@@ -77,6 +89,11 @@ app.listen(port, () => {
 app.use(async (err, req, res, next) => {
   let nav = await utilities.getNav(); // ✅ Fixed missing import
   console.error(`Error at: "${req.originalUrl}": ${err.message}`);
+  if(err.status == 404) {
+    message = err.message
+  } else {
+    message = "Oh no! There was a crash. Maybe try a diffrent route?"
+  }
   res.render("errors/error", {
     title: err.status || "Server Error",
     message: err.message,
