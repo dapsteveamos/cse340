@@ -35,6 +35,7 @@ INSERT INTO classification (classification_name) VALUES ('Sport'), ('SUV'), ('Se
 -- Insert inventory data
 INSERT INTO inventory (make, model, classification_id, description, inv_image, inv_thumbnail)
 VALUES
+  ('Toyota', 'Mustang', 3, 'A turbo fast and powerful car', '/images/monster-truck-tn.jpg', '/images/thumb_mustang.jpg');
 ('GM', 'Hummer', 2, 'small interiors, powerful engine', '/images/hummer.jpg', '/images/thumb_hummer.jpg'),
 ('Ford', 'Mustang', 1, 'A fast and powerful sports car', '/images/mustang.jpg', '/images/thumb_mustang.jpg');
 
@@ -73,3 +74,28 @@ WHERE classification.classification_name = 'Sport';
 UPDATE inventory
 SET inv_image = REPLACE(inv_image, '/images/', '/images/vehicles/'),
     inv_thumbnail = REPLACE(inv_thumbnail, '/images/', '/images/vehicles/');
+
+
+
+
+-- MORE UPDATE 
+-- Update inventory data for 'Toyota' 'Mustang'
+UPDATE inventory
+SET description = 'A turbo fast and powerful car',
+    inv_image = '/images/vehicles/adventador.jpg',
+    inv_thumbnail = '/images/vehicles/adventador-tn.jpg'
+WHERE make = 'Toyota' AND model = 'Mustang';
+
+-- Update inventory data for 'GM' 'Hummer'
+UPDATE inventory
+SET description = 'Small interiors, powerful engine',
+    inv_image = '/images/vehicles/hummer.jpg',
+    inv_thumbnail = '/images/vehicles/hummer-tn.jpg'
+WHERE make = 'GM' AND model = 'Hummer';
+
+-- Update inventory data for 'Ford' 'Mustang'
+UPDATE inventory
+SET description = 'A fast and powerful sports car',
+    inv_image = '/images/vehicles/camaro.jpg',
+    inv_thumbnail = '/images/vehicles/camaro-tn.jpg'
+WHERE make = 'Ford' AND model = 'Mustang';
