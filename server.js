@@ -2,7 +2,11 @@ const express = require("express");
 const expressLayouts = require("express-ejs-layouts");
 require("dotenv").config();
 const baseController = require("./controllers/baseController");
-const utilities = require("./utilities/index");
+const invController = require("./controllers/invController");
+const pool = require("./database/");
+const utilities = require("./utilities/");
+const inventoryRoute = require("./routes/inventoryRoute");
+
 
 const app = express();
 
@@ -50,11 +54,29 @@ app.use(async (err, req, res, next) => {
   });
 });
 
+
+/* ***********************
+ * Routes
+ *************************/
+// app.use(static);
+
+// Index route
+// app.get("/", baseController.buildHome);
+// Inventory route
+// app.use("/inv", inventoryRoute);
+// Account route
+// app.use("/account", accountRoute);
+// Error handler
+// app.use(errorHandler);
+
+
 /* ***********************
  * Local Server Information
  *************************/
-const port = process.env.PORT || 5500;
-const host = process.env.HOST || "localhost";
+// const port = process.env.PORT || 5500;
+// const host = process.env.HOST || "localhost";
+const port = process.env.PORT;
+const host = process.env.HOST;
 
 app.listen(port, () => {
   console.log(`App listening on http://${host}:${port}`);
