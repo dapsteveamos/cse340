@@ -45,7 +45,7 @@ importers:
         specifier: ^1.18.1
         version: 1.18.1
       express-validator:
-        specifier: ^7.2.0
+        specifier: ^7.2.1
         version: 7.2.1
       jsonwebtoken:
         specifier: ^9.0.2
