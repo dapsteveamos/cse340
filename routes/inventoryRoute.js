@@ -26,6 +26,14 @@ router.get(
     utilities.handleErrors(invController.buildUpdateReviewView)
 )
 
+// added by me
+// router.get(
+//     "/getInventory/:classification_id",
+//     utilities.checkAccountType,
+//     utilities.handleErrors(invController.getInventoryJSON)
+// )
+
+
 // Process update review
 router.post(
     "/detail/update/:review_id",
